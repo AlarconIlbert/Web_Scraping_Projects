@@ -26,6 +26,11 @@ def output_jobs_to_xlsx(data):
     headers = list(data[0].keys())
     for i in range (0,len(headers)):
         job_sheet.write(0,i,headers[i])
+    for i in range (0, len(data)):
+        job = data[i]
+        values = list(job.values())
+        for x in range (0, len(values)):
+            job_sheet.write(i+1,x,values[x])
     wb.save('remote_jobs.xls')
 
 if __name__ == '__main__':
